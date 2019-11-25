@@ -1,0 +1,322 @@
+Screens:
+
+Home page:
+	Enter a new ride
+	Edit a ride
+	View ride summary report
+
+Search for ride to edit 
+Search results 
+Enter/edit ride detail form 
+Ride detail confirmation 
+Ride summary report 
+
+Page components
+Header (nav)
+Footer
+
+Validation (client side and server side)
+Validate search form - search ride to edit
+Validate enter/edit ride details
+
+Queries
+Search for ride to edit
+Save enter/edit ride details
+Search for ride summary report data
+
+
+Database:
+
+ride_details table
+
+ride_seq_no
+ride_name
+ride_date
+start_time
+ride_distance
+start_location
+bicycle
+route_link
+route_rating
+report_link
+event
+ride_rating
+activity_date
+
+ride_club table
+ride_club_seq_no
+ride_seq_no
+bike_club
+ride_leader_ind
+activity_date
+
+general_ref table
+code_grp
+code_val
+code_desc
+display_order
+enabled_yn
+activity_date
+
+code_grp CLUBS
+OHBTC, Oxon Hill Club 1
+BBC, Baltimore Bicycle Club 2
+PPTC, Potomac Pedalers 3
+
+code_grp BIKES
+MAD Madone road bike
+CHECK Checkpoint gravel bike
+MTN	Mountain bike 
+
+
+
+start_location_ref table
+location_code
+location_name
+enabled_yn
+activity_date
+
+BRY Bryans Rd Shopping Center, Bryans Rd MD	
+NHS Northern High School, Chaneyville MD	
+CHAP Chaptico Park, Chaptico MD	
+CWC Frederick and Moser Rds, Thurmont MD	
+DPR, Davidsonville Park and Ride, Davidsonville MD	
+EMMIT Emmitsburg Park, Emmitsburg MD
+FAIR Fairlington
+FCCC Falls Church Community Center, Falls Church VA	
+FRESH Fresh Meadows Farm, Huntingtown MD	
+HAR Southern High School, Harwood MD	
+IHRTL IHRT Livingston Rd
+IHRTI IHRT Indian Head Md	
+IHRTW IHRT White Plains, White Plains MD	
+JUG Jug Bay Picnic Area, Croom MD	
+LAUR Laurel Grove Park, Laurel Grove MD	
+MERK Merkle Wildlife Sanctuary, Croom MD	
+NKEYS North Keys Park, Brandywine MD	
+NSC Northern Senior Center, Charlotte Hall MD	
+OAK Oak Ridge Park	
+PIS Pisgah Park	
+STIG St Ignatius, La Plata MD	
+TANPK Taneytown Park, Taneytown MD	
+THURPK Thurmont Community Park, Thurmont MD	
+UTICA Utica Park, Frederick MD	
+WALK Walkersville High School, Walkersville MD	
+WCPR, Waysons Corner Park and Ride, Lothian MD	
+OTHERVA, Other Virginia location 
+OTHERMD, Other Maryland location 
+OTHERDC, Other DC location 
+OTHERANY, Other location outside the DMV 
+
+
+event_ref table
+event_code
+event_name
+enabled_yn
+activity_date
+
+ENDH Ride to End Hunger in Calvert County
+PRRL Patuxent River Rural Legacy Ride - Oxon Hill Club
+CWC Civil War Century - Baltimore Bicycle Club
+1725 1725 Gravel Ride - EX2 Adventures
+FF50 Firefighter 50
+EASE Tour de Conservation Easement
+OTHER Other event
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Bicycle Ride Journal</title>
+  </head>
+  <body>
+    <h1>Ride Details</h1>
+	
+	<!-- 
+	if new ride then subhead_text = "Enter the details for a new ride"
+	else subhead_text = "Edit the details for a previously entered ride"
+	-->
+	
+	<h2><!-- subhead_text --></h2>
+	
+	<form >
+		Ride Name: <input type="text" id="ride_name" class="" value="">
+		Ride Date: <input type="" id="ride_date" class=""  value="">
+		Start Time: <input type="" id="start_time" class=""  value="">
+		Start Location: 
+			<select id="start_location" class="">
+				<option></option>
+			</select>
+		Distance: <input type="" id="distance" class=""  value="">
+		Bike Used: <input type="radio" id="" class="" value="">
+		Bike Club: 
+			<ul>
+				<li> club name 
+					<input type="radio" id="" class="" value="lead"> Ride leader 
+					<input type="radio" id="" class="" value="part"> Participant 
+					<input type="radio" id="" class="" value="na"> N/A
+				</li>
+			</ul>
+	
+		Ride with GPS Link: <input type="text" id="route_link" class="" value="">
+		Ride Report Link: <input type="text" id="ride_report" class="" value="">
+		Event: 
+			<select id="event" class="">
+				<option></option>
+			</select>
+		
+	</form>
+	
+	<!--
+	Validate:
+	Ride name is not blank
+	Ride date is not blank
+	Start time is not blank
+	Start location is not blank
+	Bike used is not blank
+	Ride with gps links begins with https://ridewithgps.com
+	Ride report link begins with ...
+	
+	-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+Home page:
+	Enter a new ride
+	Edit a ride
+	View ride summary report
+	
+	<h1>Welcome to the Bicycle Ride Journal</h1>
+	
+	<h2>What would you like to do?</h2>
+	
+	<ul>
+		<li>Enter details for a new ride</li>
+		<li>Edit a previously entered ride</li>
+		<li>View the ride summary report</li>
+	</ul>
+
+
+Search for a ride to edit
+Date
+Location
+Name begins with
+
+	<h1>Edit Ride Details</h1>
+	
+	<h2>Please search for a ride to edit</h2>
+	
+	<form >
+		<h3>Please enter at least one search parameter.</h3>
+		Ride Name begins with: <input type="text" id="ride_name" class="" value="">
+		Ride Date: <input type="" id="ride_date" class="" value="">
+		Start Location: 
+			<select id="start_location" class="">
+				<option></option>
+			</select>
+		Event: 
+			<select id="event" class="">
+				<option></option>
+			</select>
+		
+	</form>
+	
+	<!--
+	Validate:
+	At least one form field is not blank
+		
+	-->
+	
+	
+Search results 
+	<h1>Your search found more than one ride</h1>
+	
+	<h2>Please select a ride to edit, or enter details for a <a href="">new ride</a></h2>
+	
+	<table id="" class="">
+		<th>
+			<td>Ride Name</td>
+			<td>Date</td>
+			<td>Start Location</td>
+			<td>Event</td>
+		</th>
+		<tr>
+			<td><a href="">Ride Name</a></td>
+			<td>Date</td>
+			<td>Start Location</td>
+			<td>Event</td>
+		</tr>	
+	</table>
+	
+	
+Ride detail confirmation
+	<!--
+		if referrer = enter/edit ride details then
+			if validation errors then header_text = "Error", subhead_text = "The information you entered could not be saved due to the following errors:"
+			else header_text = "Success!", subhead_text = "Your ride details were saved successfully"
+		else if referrer = ride summary report then
+			header_text = Ride Details
+			subhead_text = ""
+	-->
+	<h1>header_text</h1>
+	
+	<h2>subhead_text</h2>
+	
+	<!-- if validation errors then -->
+	
+	
+	<!-- else (no validation errors) -->
+		Ride Name: 
+		Ride Date: 
+		Start Time: 
+		Start Location: 
+		Distance: 
+		Bike Used: 
+		Bike Club: 
+			<ul>
+				<li> club name 
+					<input type="radio" id="" class="" value="lead"> Ride leader 
+					<input type="radio" id="" class="" value="part"> Participant 
+					<input type="radio" id="" class="" value="na"> N/A
+				</li>
+			</ul>
+	
+		Ride with GPS Link: 
+		Ride Report Link: 
+		Event: 
+		
+Ride summary report 
+	<h1>Ride Summary Report</h1>
+	
+	<h2>Select a ride to view additional details</h2>
+	
+	<table id="" class="">
+		<th>
+			<td>Date</td>
+			<td>Ride Name</td>
+			<td>Start Location</td>
+			<td>Ride with GPS Link</td>
+			<td>OHBTC Ride Leader</td>
+			<td>BBC Ride Leader</td>
+		</th>
+		<tr>
+			<td>Date</td>
+			<td><a href="">Ride Name<a></td>
+			<td>Start Location</td>
+			<td>Ride with GPS Link</td>
+			<td>OHBTC Ride Leader</td>
+			<td>BBC Ride Leader</td>
+		</tr>	
+	</table>
