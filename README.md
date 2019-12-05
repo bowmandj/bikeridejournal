@@ -9,6 +9,8 @@ The objectives in creating the Bike Ride Journal are:
 - gain experience with PHP and mySQL
 - develop an app that I can use to track information on the bike rides that I do
 
+The bikeridejournaldesign.pdf document gives a high-level overview of the application.
+
 The working functionality is:
 - Enter details for a new bike ride
 
