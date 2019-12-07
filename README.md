@@ -3,7 +3,7 @@ A journal to track bicycle rides
 
 This project is under construction!!!
 
-It uses PHP and mySQL, along with some Bootstrap and jQuery. It was created using a WAMP server. The PHP is procedural. 
+It uses PHP and mySQL, along with some Bootstrap and jQuery. It was created using a WAMP server. The PHP is procedural, using a framework loosely based on the ColdFusion Fusebox framework. 
 
 The objectives in creating the Bike Ride Journal are:
 - gain experience with PHP and mySQL
