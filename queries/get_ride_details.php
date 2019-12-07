@@ -18,26 +18,26 @@
 			mysqli_stmt_execute($stmt);
 
 			/* bind result variables */
-			mysqli_stmt_bind_result($stmt, $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC_club_role, $BBC_club_role, $PPTC_club_role, $route_link, $route_rating, $ride_distance, $report_link, $event);
+			mysqli_stmt_bind_result($stmt, $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC, $BBC, $PPTC, $route_link, $route_rating, $ride_distance, $report_link, $event);
 
 			/* fetch value */
 			mysqli_stmt_fetch($stmt);
 			
-			$ride_name = htmlentities($ride_name); 
-			$ride_date = htmlentities($ride_date);
-			$start_hour = htmlentities($start_hour);
-			$start_minutes = htmlentities($start_minutes); 
-			$start_ampm = htmlentities($start_ampm);
-			$start_location = htmlentities($start_location);
-			$bike = htmlentities($bike);
-			$OHBTC_club_role = htmlentities($OHBTC_club_role);
-			$BBC_club_role = htmlentities($BBC_club_role);
-			$PPTC_club_role = htmlentities($PPTC_club_role);
-			$route_link = htmlentities($route_link);
-			$route_rating = htmlentities($route_rating);
-			$ride_distance = htmlentities($ride_distance);
-			$report_link = htmlentities($report_link);
-			$event = htmlentities($event);
+			$ride_name 		= htmlentities($ride_name); 
+			$ride_date 		= htmlentities($ride_date);
+			$start_hour 	= htmlentities($start_hour);
+			$start_minutes 	= htmlentities($start_minutes); 
+			$start_ampm 	= htmlentities($start_ampm);
+			$start_location	= htmlentities($start_location);
+			$bike 			= htmlentities($bike);
+			$OHBTC 			= htmlentities($OHBTC);
+			$BBC 			= htmlentities($BBC);
+			$PPTC 			= htmlentities($PPTC);
+			$route_link 	= htmlentities($route_link);
+			$route_rating 	= htmlentities($route_rating);
+			$ride_distance 	= htmlentities($ride_distance);
+			$report_link 	= htmlentities($report_link);
+			$event 			= htmlentities($event);
 
 		}
 		else {
@@ -53,16 +53,16 @@
 			case when rd.club_OHBTC = 'LEAD' then 'Ride Leader'
 				when rd.club_OHBTC = 'PART' then 'Participant'
 				else 'N/A'
-			end AS OHBTC_club_role, 
+			end AS OHBTC, 
 			case when rd.club_BBC = 'LEAD' then 'Ride Leader'
 				when rd.club_BBC = 'PART' then 'Participant'
 				else 'N/A'
-			end AS BBC_club_role, 
+			end AS BBC, 
 			case when rd.club_PPTC = 'LEAD' then 'Ride Leader'
 				when rd.club_PPTC = 'PART' then 'Participant'
 				else 'N/A'
-			end AS PPTC_club_role, 
-			IFNULL(rd.route_link, 0) AS route_link, rd.route_rating, IFNULL(rd.ride_distance,0) AS ride_distance, IFNULL(rd.report_link, 0) AS report_link, rd.event, gr1.code_desc AS bike_desc, gr2.code_desc AS rr_desc, slr.location_name, er.event_name
+			end AS PPTC, 
+			IFNULL(route_link, 0) AS route_link, rd.route_rating, IFNULL(rd.ride_distance,0) AS ride_distance, IFNULL(report_link,0) AS report_link, rd.event, gr1.code_desc AS bike_desc, gr2.code_desc AS rr_desc, slr.location_name, er.event_name
 			FROM ride_details rd
 				INNER JOIN start_location_ref slr ON rd.start_location = slr.location_code
 				INNER JOIN event_ref er ON rd.event = er.event_code 
@@ -79,34 +79,34 @@
 			mysqli_stmt_execute($stmt);
 
 			/* bind result variables */
-			mysqli_stmt_bind_result($stmt, $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC_club_role, $BBC_club_role, $PPTC_club_role, $route_link, $route_rating, $ride_distance, $report_link, $event, $bike_desc, $rr_desc, $location_name, $event_name);
+			mysqli_stmt_bind_result($stmt, $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC, $BBC, $PPTC, $route_link, $route_rating, $ride_distance, $report_link, $event, $bike_desc, $rr_desc, $location_name, $event_name);
 
 			/* fetch value */
 			mysqli_stmt_fetch($stmt);
 
 			/* debug code
-			echo $ride_name.','.$ride_date.','.$start_hour.','.$start_minutes.','.$start_ampm.','.$start_location.','.$bike.','.$OHBTC_club_role.','.$BBC_club_role.','.$PPTC_club_role.','.$route_link.','.$route_rating.','.$ride_distance.','.$report_link.','.$event.','.$bike_desc.','.$rr_desc.','.$location_name.','.$event_name;
+			echo $ride_name.','.$ride_date.','.$start_hour.','.$start_minutes.','.$start_ampm.','.$start_location.','.$bike.','.$OHBTC.','.$BBC.','.$PPTC.','.$route_link.','.$route_rating.','.$ride_distance.','.$report_link.','.$event.','.$bike_desc.','.$rr_desc.','.$location_name.','.$event_name;
 			*/
 			
-			$ride_name = htmlentities($ride_name); 
-			$ride_date = htmlentities($ride_date);
-			$start_hour = htmlentities($start_hour);
-			$start_minutes = htmlentities($start_minutes); 
-			$start_ampm = htmlentities($start_ampm);
-			$start_location = htmlentities($start_location);
-			$bike = htmlentities($bike);
-			$OHBTC_club_role = htmlentities($OHBTC_club_role);
-			$BBC_club_role = htmlentities($BBC_club_role);
-			$PPTC_club_role = htmlentities($PPTC_club_role);
-			$route_link = htmlentities($route_link);
-			$route_rating = htmlentities($route_rating);
-			$ride_distance = htmlentities($ride_distance);
-			$report_link = htmlentities($report_link);
-			$event = htmlentities($event);
-			$bike_desc = htmlentities($bike_desc);
-			$rr_desc = htmlentities($rr_desc);
-			$location_name = htmlentities($location_name);
-			$event_name = htmlentities($event_name);
+			$ride_name 		= htmlentities($ride_name); 
+			$ride_date 		= htmlentities($ride_date);
+			$start_hour 	= htmlentities($start_hour);
+			$start_minutes	= htmlentities($start_minutes); 
+			$start_ampm 	= htmlentities($start_ampm);
+			$start_location	= htmlentities($start_location);
+			$bike 			= htmlentities($bike);
+			$OHBTC 			= htmlentities($OHBTC);
+			$BBC 			= htmlentities($BBC);
+			$PPTC 			= htmlentities($PPTC);
+			$route_link 	= htmlentities($route_link);
+			$route_rating 	= htmlentities($route_rating);
+			$ride_distance 	= htmlentities($ride_distance);
+			$report_link 	= htmlentities($report_link);
+			$event 			= htmlentities($event);
+			$bike_desc 		= htmlentities($bike_desc);
+			$rr_desc 		= htmlentities($rr_desc);
+			$location_name 	= htmlentities($location_name);
+			$event_name 	= htmlentities($event_name);
 		
 		
 			
@@ -122,7 +122,5 @@
 	/* close statement */
 		mysqli_stmt_close($stmt);
 	
-		//close connection
-		mysqli_close($conn);
 ?>
 

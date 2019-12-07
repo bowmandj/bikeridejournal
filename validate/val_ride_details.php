@@ -10,12 +10,10 @@
 	start_time is not blank
 	start_location is not blank
 	route_link is numeric
-	ride_report link is numeric
+	report link is numeric
 	distance is numeric
-	event
-	OHBTC_club_role
-	BBC_club_role
-	PPTC_club_role
+	
+	
 */	
 
 	// define variables and set to empty values
@@ -24,13 +22,14 @@
 	$start_time 		= "";
 	$start_ampm 		= "";
 	$start_location 	= "";
+	$ride_distance		= "";
 	$bike 				= "";
-	$OHBTC_club_role 	= "";
-	$BBC_club_role 		= "";
-	$PPTC_club_role 	= "";
+	$OHBTC 				= "";
+	$BBC		 		= "";
+	$PPTC			 	= "";
 	$route_link 		= "";
 	$route_rating 		= "";
-	$ride_report 		= "";
+	$report_link 		= "";
 	$event 				= "";
 	$action_type		= "";
 	$ride_id			= "";
@@ -55,14 +54,14 @@
 		$start_minutes 		= test_input($_POST["start_minutes"]);
 		$start_ampm 		= test_input($_POST["start_ampm"]);
 		$start_location 	= test_input($_POST["start_location"]);
-		$distance			= test_input($_POST["distance"]);
+		$ride_distance		= test_input($_POST["ride_distance"]);
 		$bike 				= test_input($_POST["bike"]);
-		$OHBTC_club_role 	= test_input($_POST["OHBTC_club_role"]);
-		$BBC_club_role 		= test_input($_POST["BBC_club_role"]);
-		$PPTC_club_role 	= test_input($_POST["PPTC_club_role"]);
+		$OHBTC				= test_input($_POST["OHBTC"]);
+		$BBC		 		= test_input($_POST["BBC"]);
+		$PPTC			 	= test_input($_POST["PPTC"]);
 		$route_link 		= test_input($_POST["route_link"]);
 		$route_rating 		= test_input($_POST["route_rating"]);
-		$ride_report 		= test_input($_POST["ride_report"]);
+		$report_link 		= test_input($_POST["report_link"]);
 		$event 				= test_input($_POST["event"]);
 		$action_type 		= test_input($_POST["action_type"]);
 		$ride_id	 		= test_input($_POST["ride_id"]);
@@ -92,14 +91,14 @@
 			}
 		}
 		
-		//validate non-required fields that must be numeric if provided route_link, distance, ride_report
+		//validate non-required fields that must be numeric if provided route_link, distance, report_link
 		if (strlen($route_link) > 0 && !filter_var($route_link, FILTER_VALIDATE_INT)) {
 			$error_message[] = "Ride with GPS Link must be a number.";
 		}
-		if (strlen($distance) > 0 && !filter_var($distance, FILTER_VALIDATE_INT)) {
+		if (strlen($ride_distance) > 0 && !filter_var($ride_distance, FILTER_VALIDATE_INT)) {
 			$error_message[] = "Distance must be a whole number.";
 		}
-		if (strlen($ride_report) > 0 && !filter_var($ride_report, FILTER_VALIDATE_INT)) {
+		if (strlen($report_link) > 0 && !filter_var($report_link, FILTER_VALIDATE_INT)) {
 			$error_message[] = "Ride Report URL must be a number.";
 		}
 		

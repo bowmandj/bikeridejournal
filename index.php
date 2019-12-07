@@ -33,6 +33,8 @@
 			include 'config/db.php'; 
 			//include queries to get values for dropdowns
 			include 'queries/get_dropdowns.php';
+			//close db connection
+			include 'config/db_close.php';
 			//include the form
 			include 'view/dsp_ride_detail_form.php';
 		break;
@@ -51,7 +53,9 @@
 			//include queries to get values for dropdowns
 			include 'queries/get_dropdowns.php';
 			//include query to get existing ride data
-			
+			include 'queries/get_ride_details.php';
+			//close db connection
+			include 'config/db_close.php';
 			//include the form
 			include 'view/dsp_ride_detail_form.php';
 		break;
@@ -64,6 +68,8 @@
 			include 'config/db.php'; 
 			//include query to save data
 			include 'queries/save_ride.php';
+			//close db connection
+			include 'config/db_close.php';
 		break;
 		
 		case 'ride_view':
@@ -74,6 +80,8 @@
 			include 'config/db.php'; 
 			//include queries to get ride data
 			include 'queries/get_ride_details.php';
+			//close db connection
+			include 'config/db_close.php';
 			//include display code
 			include 'view/dsp_ride_detail_view.php';
 		break;
@@ -84,6 +92,8 @@
 			//include the file with the database connection code
 			//iclude 'config/db.php'; 
 			//include queries to get data
+			//close db connection
+			//include 'config/db_close.php';
 			//include display code
 			include 'view/dsp_report.php';
 		break;

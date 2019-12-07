@@ -83,8 +83,5 @@
 	mysqli_free_result($result_events);
 	mysqli_free_result($result_route_rate);
 	
-	//close connection
-	mysqli_close($conn);
-	
-	
+		
 ?>

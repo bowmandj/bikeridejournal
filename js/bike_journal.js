@@ -30,16 +30,16 @@ $(document).ready(function(){
 				}
 	
 								
-				//route_link, ride_report, distance - not required but must be numeric if entered
+				//route_link, report_link, ride distance - not required but must be numeric if entered
 				if ($("#route_link").val().length > 0 && $.isNumeric($("#route_link").val()) == false) {
 					error_message += "<li>Ride with GPS Link must be a number</li>";
 				}
 				
-				if ($("#ride_report").val().length > 0 &&$.isNumeric($("#ride_report").val()) == false) {
+				if ($("#report_link").val().length > 0 &&$.isNumeric($("#report_link").val()) == false) {
 					error_message += "<li>Ride Report URL must be a number</li>";
 				}
 				
-				if ($("#distance").val().length > 0 &&$.isNumeric($("#distance").val()) == false) {
+				if ($("#ride_distance").val().length > 0 &&$.isNumeric($("#ride_distance").val()) == false) {
 					error_message += "<li>Distance must be a whole number</li>";
 				}
 				

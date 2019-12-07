@@ -80,7 +80,7 @@ act = ride_view
 		</div>
 		<div class="form-group row">
 			<div class="col-3 text-right">
-				<label for="distance">Distance (miles):</label>
+				<label for="ride_distance">Distance (miles):</label>
 			</div>
 			<div class="col">
 				<?php echo $ride_distance; ?>
@@ -104,7 +104,7 @@ act = ride_view
 							Oxon Hill Club: 
 						</div>
 						<div class="col">						
-							<?php echo $OHBTC_club_role; ?>
+							<?php echo $OHBTC; ?>
 						</div>
 					</div>
 					<div class="row">
@@ -112,7 +112,7 @@ act = ride_view
 							Baltimore Bike Club: 
 						</div>
 						<div class="col">						
-							<?php echo $BBC_club_role; ?>
+							<?php echo $BBC; ?>
 						</div>
 					</div>
 					<div class="row">
@@ -120,7 +120,7 @@ act = ride_view
 							Potomac Pedalers: 
 						</div>
 						<div class="col">						
-							<?php echo $PPTC_club_role; ?>
+							<?php echo $PPTC; ?>
 						</div>
 					</div>
 			</div>
@@ -147,7 +147,7 @@ act = ride_view
 		</div>
 		<div class="form-group row">
 			<div class="col-3 text-right">
-				<label for="ride_report">Ride Report URL:</label>
+				<label for="report_link">Ride Report URL:</label>
 			</div>
 			<div class="col">
 				<?php if($report_url == 'N/A') : ?>

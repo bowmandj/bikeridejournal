@@ -16,14 +16,14 @@
 		$start_minutes 		= mysqli_real_escape_string($conn, $start_minutes);
 		$start_ampm 		= mysqli_real_escape_string($conn, $start_ampm);
 		$start_location 	= mysqli_real_escape_string($conn, $start_location);
-		$distance			= mysqli_real_escape_string($conn, $distance);
+		$ride_distance		= mysqli_real_escape_string($conn, $ride_distance);
 		$bike 				= mysqli_real_escape_string($conn, $bike);
-		$OHBTC_club_role 	= mysqli_real_escape_string($conn, $OHBTC_club_role);
-		$BBC_club_role 		= mysqli_real_escape_string($conn, $BBC_club_role);
-		$PPTC_club_role 	= mysqli_real_escape_string($conn, $PPTC_club_role);
+		$OHBTC			 	= mysqli_real_escape_string($conn, $OHBTC);
+		$BBC		 		= mysqli_real_escape_string($conn, $BBC);
+		$PPTC			 	= mysqli_real_escape_string($conn, $PPTC);
 		$route_link 		= mysqli_real_escape_string($conn, $route_link);
 		$route_rating 		= mysqli_real_escape_string($conn, $route_rating);
-		$ride_report 		= mysqli_real_escape_string($conn, $ride_report);
+		$report_link 		= mysqli_real_escape_string($conn, $report_link);
 		$event 				= mysqli_real_escape_string($conn, $event);
 		$action_type		= mysqli_real_escape_string($conn, $action_type);
 		$ride_id			= mysqli_real_escape_string($conn, $ride_id);
@@ -36,7 +36,7 @@
 									
 				// prepare and bind
 				$stmt = mysqli_prepare($conn, "INSERT INTO ride_details (ride_name, ride_date, start_hour, start_minutes, start_ampm, start_location, bicycle, club_ohbtc, club_bbc, club_pptc, route_link, route_rating, ride_distance, report_link, event) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-				mysqli_stmt_bind_param($stmt,"ssssssssssdiids", $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC_club_role, $BBC_club_role, $PPTC_club_role, $route_link, $route_rating, $ride_distance, $report_link, $event);
+				mysqli_stmt_bind_param($stmt,"ssssssssssdiids", $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC, $BBC, $PPTC, $route_link, $route_rating, $ride_distance, $report_link, $event);
 
 				/* execute prepared statement */
 				mysqli_stmt_execute($stmt);
@@ -59,7 +59,7 @@
 			
 			// prepare and bind
 				$stmt = mysqli_prepare($conn, "UPDATE ride_details SET ride_name=?, ride_date=?, start_hour=?, start_minutes=?, start_ampm=?, start_location=?, bicycle=?, club_ohbtc=?, club_bbc=?, club_pptc=?, route_link=?, route_rating=?, ride_distance=?, report_link=?, event=? WHERE ride_seq_no=?");
-				mysqli_stmt_bind_param($stmt,"ssssssssssdiidsi", $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC_club_role, $BBC_club_role, $PPTC_club_role, $route_link, $route_rating, $ride_distance, $report_link, $event, $ride_id);
+				mysqli_stmt_bind_param($stmt,"ssssssssssdiidsi", $ride_name, $ride_date, $start_hour, $start_minutes, $start_ampm, $start_location, $bike, $OHBTC, $BBC, $PPTC, $route_link, $route_rating, $ride_distance, $report_link, $event, $ride_id);
 
 				/* execute prepared statement */
 				mysqli_stmt_execute($stmt);
@@ -78,8 +78,11 @@
 		//printf("Error: %d.\n", mysqli_stmt_error($stmt));
 		//printf("%d Row inserted.\n", mysqli_stmt_affected_rows($stmt));
 
-		$stmt->close();
-		$conn->close();
+		//$stmt->close();
+		//$conn->close();
+		
+		/* close statement */
+		mysqli_stmt_close($stmt);
 		
 	}
 	
