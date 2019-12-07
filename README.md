@@ -3,7 +3,7 @@ A journal to track bicycle rides
 
 This project is under construction!!!
 
-It uses PHP and mySQL, along with some Boostrap and jQuery. It was created using a WAMP server. The PHP is procedural. 
+It uses PHP and mySQL, along with some Bootstrap and jQuery. It was created using a WAMP server. The PHP is procedural. 
 
 The objectives in creating the Bike Ride Journal are:
 - gain experience with PHP and mySQL
@@ -14,8 +14,10 @@ The bike ride journal design.pdf document gives a high-level overview of the app
 The working functionality is:
 - Enter and save details for a new bike ride
 - Display confirmation page when a new bike ride is saved
+- Some edit functionality
 
 Still under construction:
-- Search for and edit a previously entered bike ride
+- Save edited details for a ride (this is partially completed)
+- Search for a previously entered bike ride to edit
 - View a confirmation page after saving an edited ride
 - View a report listing all rides entered
